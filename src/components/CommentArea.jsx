@@ -39,15 +39,16 @@ class CommentArea extends Component {
   }
 
   componentDidMount() {
-    this.fetchComments();
+    // this.fetchComments();
   }
 
   render() {
+    console.log(this.props.asin);
     return (
       <>
         <h2>Commenti</h2>
         {this.state.comments.length > 0 ? <CommentList comments={this.state.comments} /> : <Alert> Non ci sono commenti</Alert>}
-        <AddComment asin={this.props.asin} />
+        {this.props.asin.length > 0 && <AddComment asin={this.props.asin} />}
       </>
     );
   }

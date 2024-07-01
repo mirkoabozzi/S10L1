@@ -4,7 +4,6 @@ import { Button, Form } from "react-bootstrap";
 class AddComment extends Component {
   state = {
     newComment: {
-      name: "",
       comment: "",
       rate: "1",
       elementId: this.props.asin,
@@ -24,6 +23,7 @@ class AddComment extends Component {
         },
       });
       if (response.ok) {
+        console.log(response);
       } else {
         throw new Error("Errore nell'invio dei commenti");
       }
@@ -35,9 +35,6 @@ class AddComment extends Component {
   render() {
     return (
       <Form onSubmit={this.fetchAddComment}>
-        <Form.Group className="mb-3" controlId="formBasicNome">
-          <Form.Control type="text" placeholder="Nome" value={this.state.newComment.name} onChange={(e) => this.setState({ newComment: { ...this.state.newComment, name: e.target.value } })} />
-        </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicComment">
           <Form.Control
             type="text"

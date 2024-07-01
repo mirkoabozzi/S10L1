@@ -15,7 +15,7 @@ class BookList extends Component {
   };
 
   render() {
-    console.log(this.state.asin);
+    // console.log(this.state.asin);
     return (
       <Row>
         <Col sm={12} md={6}>
