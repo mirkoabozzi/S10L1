@@ -30,7 +30,13 @@ class CommentArea extends Component {
     }
   };
 
-  componentDidUpdate() {}
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.fetchComments();
+    } else {
+      console.log("no asin");
+    }
+  }
 
   componentDidMount() {
     this.fetchComments();
