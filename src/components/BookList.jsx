@@ -20,14 +20,14 @@ class BookList extends Component {
       <Row>
         <Col sm={12} md={6}>
           <Container>
-            <InputGroup className="mb-3">
+            <InputGroup className="my-3">
               <Form.Control type="text" placeholder="Cerca un libro" aria-describedby="basic-addon2" value={this.state.userBook} onChange={(e) => this.setState({ userBook: e.target.value })} />
             </InputGroup>
             <Row>
               {this.props.books
                 .filter((book) => book.title.toLowerCase().includes(this.state.userBook))
                 .map((book) => (
-                  <SingleBook key={book.asin} book={book} changeAsin={this.changeAsin} />
+                  <SingleBook key={book.asin} book={book} changeAsin={this.changeAsin} asin={this.state.asin} />
                 ))}
             </Row>
           </Container>

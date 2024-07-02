@@ -32,9 +32,10 @@ class CommentArea extends Component {
 
   componentDidUpdate(prevProps) {
     if (prevProps.asin !== this.props.asin) {
+      console.log("asin changed");
       this.fetchComments();
     } else {
-      console.log("no asin");
+      console.log("no asin changed");
     }
   }
 
@@ -46,7 +47,7 @@ class CommentArea extends Component {
     console.log(this.props.asin);
     return (
       <>
-        <h2>Commenti</h2>
+        <h2 className="mt-2">Commenti</h2>
         {this.state.comments.length > 0 ? <CommentList comments={this.state.comments} /> : <Alert> Non ci sono commenti</Alert>}
         {this.props.asin.length > 0 && <AddComment asin={this.props.asin} />}
       </>

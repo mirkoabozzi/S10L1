@@ -34,27 +34,30 @@ class AddComment extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.fetchAddComment}>
-        <Form.Group className="mb-3" controlId="formBasicComment">
-          <Form.Control
-            type="text"
-            placeholder="Commento"
-            value={this.state.newComment.comment}
-            onChange={(e) => this.setState({ newComment: { ...this.state.newComment, comment: e.target.value } })}
-          />
-        </Form.Group>
-        <Form.Select aria-label="Default select example" value={this.state.newComment.rate} onChange={(e) => this.setState({ newComment: { ...this.state.newComment, rate: e.target.value } })}>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </Form.Select>
+      <>
+        <h2 className="mt-2">Aggiungi un commento</h2>
+        <Form onSubmit={this.fetchAddComment}>
+          <Form.Group className="mb-3" controlId="formBasicComment">
+            <Form.Control
+              type="text"
+              placeholder="Commento"
+              value={this.state.newComment.comment}
+              onChange={(e) => this.setState({ newComment: { ...this.state.newComment, comment: e.target.value } })}
+            />
+          </Form.Group>
+          <Form.Select aria-label="Default select example" value={this.state.newComment.rate} onChange={(e) => this.setState({ newComment: { ...this.state.newComment, rate: e.target.value } })}>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </Form.Select>
 
-        <Button variant="primary" type="submit" className="mt-3">
-          Invia
-        </Button>
-      </Form>
+          <Button variant="primary" type="submit" className="mt-3">
+            Invia
+          </Button>
+        </Form>
+      </>
     );
   }
 }
